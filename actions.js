@@ -23,7 +23,6 @@ const addComment = (text, userId, postId) => dispatch(addComment(text, userId, p
 
 
 
-
 function editComment(text, commentId) {
 
     return {
@@ -45,3 +44,31 @@ function deleteComment(commentId) {
 } 
 
 const deleteComment = (commentId) => dispatch(deleteComment(commentId));
+
+
+function thumbsUp(commentId, userId){
+
+    return{
+
+        type: 'THUMBS_UP_COMMENT',
+        commentId,
+        userId,
+    }
+}
+
+const thumbsUp = (commentId, userId) => dispatch(thumbsUp(commentId, userId))
+
+
+
+
+function thumbsDown(commentId, userId){
+
+    return{
+
+        type: 'THUMBS_DOWN_COMMENT',
+        commentId,
+        userId,
+    }
+}
+
+const thumbsDown = (commentId, userId) => dispatch(thumbsDown(commentId, userId))
