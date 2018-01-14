@@ -18,7 +18,7 @@ function addComment(text, userId, postId) {
     }
 }  
 
-const addComment = (text, userId, postId) => dispatch(addComment(text, userId, postId));
+const boundaddComment = (text, userId, postId) => dispatch(addComment(text, userId, postId));
 // addComment('Hey, that is an awesome picture!', User123, PostXYZ);
 
 
@@ -32,7 +32,7 @@ function editComment(text, commentId) {
     }
 } 
 
-const editComment = (text, commentId) => dispatch(addComment(text, commentId));
+const boundeditComment = (text, commentId) => dispatch(editComment(text, commentId));
 
 
 function deleteComment(commentId) {
@@ -43,7 +43,7 @@ function deleteComment(commentId) {
     }
 } 
 
-const deleteComment = (commentId) => dispatch(deleteComment(commentId));
+const bounddeleteComment = (commentId) => dispatch(deleteComment(commentId));
 
 
 function thumbsUp(commentId, userId){
@@ -56,7 +56,7 @@ function thumbsUp(commentId, userId){
     }
 }
 
-const thumbsUp = (commentId, userId) => dispatch(thumbsUp(commentId, userId))
+const boundthumbsUp = (commentId, userId) => dispatch(thumbsUp(commentId, userId))
 
 
 
@@ -71,4 +71,4 @@ function thumbsDown(commentId, userId){
     }
 }
 
-const thumbsDown = (commentId, userId) => dispatch(thumbsDown(commentId, userId))
+const boundthumbsDown = (commentId, userId) => dispatch(thumbsDown(commentId, userId))
