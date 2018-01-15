@@ -1,74 +1,72 @@
-/* 
-Stwórz plik actions.js, w którym zdefiniujesz typy akcji oraz kreatory akcji dla następujących zdarzeń:
+import uuid from uuid;
 
-tworzenie komentarza,
-edycja komentarza,
-usuwanie komentarza,
-ocenianie +1 / -1 (kciuk w górę/kciuk w dół) komentarza
- */
 
-function addComment(text, userId, postId) {
+
+const ADD_COMMENT = 'ADD_COMMENT';
+
+function addComment(text) {
 
     return {
         type: 'ADD_COMMENT',
         text,
-        userId,
-        postId,
-        commentId: uuid.v4()    
+        id: uuid.v4()    
     }
 }  
 
-const boundaddComment = (text, userId, postId) => dispatch(addComment(text, userId, postId));
-// addComment('Hey, that is an awesome picture!', User123, PostXYZ);
 
+const EDIT_COMMENT = 'EDIT_COMMENT';
 
-
-function editComment(text, commentId) {
+function editComment(text, id) {
 
     return {
         type: 'EDIT_COMMENT',
         text,
-        commentId,
+        id
     }
 } 
 
-const boundeditComment = (text, commentId) => dispatch(editComment(text, commentId));
 
 
-function deleteComment(commentId) {
+const REMOVE_COMMENT = 'REMOVE_COMMENT';
+
+function removeComment(id) {
     
     return {
-        type: 'DELETE_COMMENT',
-        commentId
+        type: 'REMOVE_COMMENT',
+        id
     }
 } 
 
-const bounddeleteComment = (commentId) => dispatch(deleteComment(commentId));
 
+const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 
-function thumbsUp(commentId, userId){
+function thumbUpComment(id) {
 
-    return{
+    return {
 
-        type: 'THUMBS_UP_COMMENT',
-        commentId,
-        userId,
+        type: 'THUMB_UP_COMMENT',
+        id
     }
 }
 
-const boundthumbsUp = (commentId, userId) => dispatch(thumbsUp(commentId, userId))
 
 
 
+const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
-function thumbsDown(commentId, userId){
+function thumbDownComment(id) {
 
-    return{
+    return {
 
-        type: 'THUMBS_DOWN_COMMENT',
-        commentId,
-        userId,
+        type: 'THUMB_DOWN_COMMENT',
+        id
     }
 }
 
-const boundthumbsDown = (commentId, userId) => dispatch(thumbsDown(commentId, userId))
+
+
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
